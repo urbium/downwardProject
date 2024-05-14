@@ -441,12 +441,31 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
+    NAME deleterelaxed_search
+    HELP "Delete relaxed search"
+    SOURCES
+        search_algorithms/deleterelaxed_search
+    DEPENDS
+    DEPENDENCY_ONLY
+)
+
+create_fast_downward_library(
     NAME plugin_astar
     HELP "A* search"
     SOURCES
         search_algorithms/plugin_astar
     DEPENDS
         eager_search
+        search_common
+)
+
+create_fast_downward_library(
+    NAME plugin_deleterelaxed
+    HELP "delete-relaxed search"
+    SOURCES
+        search_algorithms/plugin_deleterelaxed
+    DEPENDS
+        deleterelaxed_search
         search_common
 )
 
